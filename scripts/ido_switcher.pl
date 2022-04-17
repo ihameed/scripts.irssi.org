@@ -1040,11 +1040,11 @@ sub handle_keypress {
         return;
     }
 
-    if ($key == 8) {        # Ctrl-h
-        display_help();
-        Irssi::signal_stop();
-        return;
-    }
+    # if ($key == 8) {        # Ctrl-h
+    #     display_help();
+    #     Irssi::signal_stop();
+    #     return;
+    # }
 
     if ($key == 21) {       # Ctrl-u
         $search_str = '';
@@ -1056,7 +1056,8 @@ sub handle_keypress {
 
     }
 
-    if ($key == 127) {      # DEL
+    # if ($key == 127)      # DEL
+    if ($key == 127 || $key == 8) {      # DEL
 
         if (length $search_str) {
             $search_str = substr($search_str, 0, -1);
